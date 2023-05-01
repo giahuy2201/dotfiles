@@ -1,0 +1,4 @@
+# dotfiles
+```
+stow --target $HOME *
+```
