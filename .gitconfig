@@ -1,0 +1,14 @@
+[user]
+	name = Huy Nguyen
+	email = giahuy2201@icloud.com
+[credential]
+	helper = osxkeychain
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+	whitespace = cr-at-eol
+[alias]
+	can = commit --amend --no-edit
+	lg = log --graph --oneline --decorate --all
+	lme = log --author=Huy --all
