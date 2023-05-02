@@ -12,6 +12,8 @@ fi
 
 # Git aliases
 alias gs='git status'
+alias ga='git add'
+alias gcmsg='git commit -m'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 # Delete lines containing a certain string (ip address) in the known_hosts file.
