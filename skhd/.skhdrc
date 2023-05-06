@@ -10,6 +10,8 @@ alt - l : yabai -m window --focus east
 alt - s : yabai -m display --focus west
 alt - g : yabai -m display --focus east
 
+alt - tab : yabai -m query --windows --window recent | jq -r '.id' | xargs yabai -m window --focus
+
 # MODIFYING THE LAYOUT
 
 # toggle window float
@@ -45,3 +47,4 @@ shift + alt - 6 : yabai -m window --space 6;
 shift + alt - 7 : yabai -m window --space 7;
 shift + alt - 8 : yabai -m window --space 8;
 shift + alt - 9 : yabai -m window --space 9;
+shift + alt - 0 : yabai -m window --space 10;
