@@ -9,6 +9,5 @@
 	autocrlf = input
 	whitespace = cr-at-eol
 [alias]
-	can = commit --amend --no-edit
 	lg = log --graph --oneline --decorate --all
 	lme = log --author=Huy --all
