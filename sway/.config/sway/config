@@ -1,3 +1,24 @@
+# styles - set the folder for your theme definition file
+set $theme /usr/share/sway/themes/matcha-green
+
+# theme variables
+include $theme/definitions
+
+# global variables
+include /etc/sway/definitions
+
+include /etc/sway/inputs/*
+include /etc/sway/outputs/*
+
+# enable modes
+include /etc/sway/modes/*
+
+# only enable this if every app you use is compatible with wayland
+# xwayland disable
+
+# include additional configs e.g. to autostart applications
+include /etc/sway/config.d/*
+
 ### Variables
 
 # Logo key. Use Mod1 for Alt.
@@ -212,14 +233,6 @@ exec_always {
   gsettings set org.gnome.desktop.interface monospace-font-name "$term-font"
 
   kvantummanager --set "$kvantum-theme"
-}
-
-### waybar
-
-bar {
-    id default
-    swaybar_command /usr/share/sway/scripts/waybar.sh
-    position $waybar_position
 }
 
 ### application-defaults
