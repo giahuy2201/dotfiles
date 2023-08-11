@@ -1,7 +1,0 @@
-alias la='ls -la'
-
-if [[ $- == *i* ]]
-then
-    bind '"\e[A": history-search-backward'
-    bind '"\e[B": history-search-forward'
-fi
