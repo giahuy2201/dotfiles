@@ -1,28 +1,16 @@
-# styles - set the folder for your theme definition file
-set $theme /usr/share/sway/themes/matcha-green
 
-# theme variables
-include $theme/definitions
+font pango:SourceCodePro Medium 13
 
-# global variables
-include /etc/sway/definitions
+# Set 1 pixel border
+default_border pixel 1
+hide_edge_borders smart
 
-include /etc/sway/inputs/*
-include /etc/sway/outputs/*
-
-# enable modes
-include /etc/sway/modes/*
-
-# only enable this if every app you use is compatible with wayland
-# xwayland disable
-
-# include additional configs e.g. to autostart applications
-include /etc/sway/config.d/*
+set $wallpaper '~/Pictures/galen-crout-175291.jpg'
 
 ### Variables
-
+#
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
+set $mod Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -33,12 +21,13 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu wofi --show drun
+set $menu j4-dmenu-desktop --dmenu='bemenu -i -H 30 --fn "pango:SourceCodePro Medium 13"' --term=$term
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $wallpaper fill
 #
 # Example configuration:
 #
@@ -58,6 +47,24 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    # accel_profile flat
+    natural_scroll enabled
+}
+input type:keyboard {
+    xkb_layout 'us'
+    # xkb_options caps:swapescape
+}
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
 #
@@ -202,113 +209,22 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command waybar
 }
 
-### systemd-user
+bindsym $mod+tab workspace back_and_forth
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec bemenu-run
 
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-
-### enable theme
-
-exec_always {
-  gsettings set org.gnome.desktop.interface gtk-theme "$gtk-theme"
-  gsettings set org.gnome.desktop.interface icon-theme "$icon-theme"
-  gsettings set org.gnome.desktop.interface cursor-theme "$cursor-theme"
-  gsettings set org.gnome.desktop.interface font-name "$gui-font"
-  gsettings set org.gnome.desktop.interface color-scheme "$gtk-color-scheme"
-  gsettings set org.gnome.desktop.input-sources show-all-sources true
-  gsettings set org.gnome.desktop.interface monospace-font-name "$term-font"
-
-  kvantummanager --set "$kvantum-theme"
-}
-
-### application-defaults
-
-# don't show gaps if there's only one window on the desktop
-smart_gaps on
-
-# set floating mode for generated windows
-for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable;
-for_window [title="(?:Open|Save) (?:File|Folder|As)"] resize set 800 600
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-
-# set floating mode for specific applications
-for_window [instance="lxappearance"] floating enable
-for_window [app_id="pamac-manager"] floating enable
-for_window [app_id="blueberry.py"] floating enable
-for_window [app_id="dragon-drop"] floating enable, sticky enable
-for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable
-for_window [app_id="thunderbird" title=".*Reminder"] floating enable
-for_window [app_id="floating_shell"] floating enable, border pixel 1, sticky enable
-for_window [app_id="Manjaro.manjaro-settings-manager"] floating enable
-for_window [app_id="" title="Picture in picture"] floating enable, sticky enable
-for_window [app_id="" title="Picture-in-Picture"] floating enable, sticky enable
-for_window [instance="around"] floating enable, sticky enable
-for_window [app_id="xsensors"] floating enable
-for_window [title="Save File"] floating enable
-for_window [title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
-for_window [app_id="" title=".* is sharing your screen."] floating enable
-for_window [title="^wlay$"] floating enable
-
-# inhibit idle
-for_window [app_id="microsoft teams - preview"] inhibit_idle fullscreen
-for_window [app_id="google-chrome"] inhibit_idle fullscreen
-for_window [app_id="google-chrome-beta"] inhibit_idle fullscreen
-for_window [app_id="google-chrome-unstable"] inhibit_idle fullscreen
-
-# Don't allow applications to inhibit shortcuts, i.e. grab total control of the
-# keyboard. Chrome currently abuses this by enabling it for all "--app=..."
-# shortcuts.
-seat * shortcuts_inhibitor disable
-
-### autostart applications
-
-# autostart background applications
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# autostarts
-exec {
-    $xdg-dirs
-    $swayidle
-    $mako
-    $swappy_notify
-    $autostart_dex
-    $flashfocus
-    $wlsunset
-    $autotiling
-    $foot_server
-    $help_menu
-    $cliphist_store
-    $cliphist_watch
-    $workspace_icons
-    $mounting_daemon
-}
-
-exec_always {
-    $kanshi
-    $auto_xdg_keyboard
-    $poweralert
-    $watch_playerctl
-    $calendar_daemon
-    $update_rofi_theme
-    $create_rofi_config
-    $swayr_daemon
-}
