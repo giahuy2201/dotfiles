@@ -1,16 +1,14 @@
-
-font pango:SourceCodePro Medium 13
-
 # Set 1 pixel border
 default_border pixel 1
 hide_edge_borders smart
 
 set $wallpaper '~/Pictures/galen-crout-175291.jpg'
+set $font SourceCodePro 13
 
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod1
+set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -22,7 +20,9 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu wofi --show drun
-set $menu j4-dmenu-desktop --dmenu='bemenu -i -H 30 --fn "pango:SourceCodePro Medium 13"' --term=$term
+set $menu bemenu-run -i -H 30 -p '> ' --fn 'pango:$font'
+
+font pango:$font
 
 ### Output configuration
 #
@@ -39,10 +39,10 @@ output * bg $wallpaper fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
