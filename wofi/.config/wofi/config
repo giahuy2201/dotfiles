@@ -1,0 +1,4 @@
+mode=run
+allow-images=true
+allow-markup=true
+term=foot
