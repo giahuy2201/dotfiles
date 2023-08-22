@@ -1,17 +1,15 @@
-# Use powerline
-USE_POWERLINE="true"
-# Source manjaro-zsh-configuration
-if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-  source /usr/share/zsh/manjaro-zsh-config
-fi
-# Use manjaro zsh prompt
-if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
-  source /usr/share/zsh/manjaro-zsh-prompt
+
+# Enable minimal theme
+if [ -f ~/.config/zsh/minimal.zsh ]
+then
+  source ~/.config/zsh/minimal.zsh
 fi
 
-export BEMENU_BACKEND=wayland
+# Autocompletion using arrow keys (based on history)
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
 
-# Include alias file (if present) containing aliases for ssh, etc.
+# Include private aliases
 if [ -f $HOME/.aliases ]
 then
   source $HOME/.aliases
