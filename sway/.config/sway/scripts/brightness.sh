@@ -5,7 +5,7 @@ current_rel() {
     echo "($(light -G) + 0.5) / 1" | bc
 } 
 max=$(light -Mr)
-factor=3
+factor=5
 brightness_step=$((max * factor / 100 < 1 ? 1 : max * factor / 100))
 
 case $1'' in
