@@ -5,15 +5,18 @@ then
   source ~/.config/zsh/minimal.zsh
 fi
 
+# Include private aliases
+if [ -f ~/.aliases ]
+then
+  source ~/.aliases
+fi
+
 # Autocompletion using arrow keys (based on history)
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
-# Include private aliases
-if [ -f $HOME/.aliases ]
-then
-  source $HOME/.aliases
-fi
+# Shell aliases
+alias la='ls -lah'
 
 # Git aliases
 alias gs='git status'
