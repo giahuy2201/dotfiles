@@ -1,14 +1,14 @@
 
 # Enable minimal theme
-if [ -f ~/.config/zsh/minimal.zsh ]
+if [ -f $HOME/.config/zsh/minimal.zsh ]
 then
-  source ~/.config/zsh/minimal.zsh
+  source $HOME/.config/zsh/minimal.zsh
 fi
 
 # Include private aliases
-if [ -f ~/.aliases ]
+if [ -f $HOME/.aliases ]
 then
-  source ~/.aliases
+  source $HOME/.aliases
 fi
 
 # Autocompletion using arrow keys (based on history)
@@ -34,6 +34,6 @@ knownrm() {
  if ! [[ $1 =~ $re ]] ; then
    echo "error: line number missing" >&2;
  else
-   sed -i '' "/$1/d" ~/.ssh/known_hosts
+   sed -i '' "/$1/d" $HOME/.ssh/known_hosts
  fi
 }

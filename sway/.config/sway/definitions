@@ -17,7 +17,7 @@ set $bindsym bindsym --to-code
 set $unbindsym unbindsym --to-code
 
 # wallpaper
-set $wallpaper '$XDG_PICTURES_DIR/wallpapers/galen-crout-175291.jpg'
+set $wallpaper '$HOME/Pictures/wallpapers/galen-crout-175291.jpg'
 
 # Your preferred terminal emulator
 set $term foot
