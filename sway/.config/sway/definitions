@@ -17,7 +17,7 @@ set $bindsym bindsym --to-code
 set $unbindsym unbindsym --to-code
 
 # wallpaper
-set $wallpaper '~/Pictures/wallpapers/galen-crout-175291.jpg'
+set $wallpaper '$XDG_PICTURES_DIR/wallpapers/galen-crout-175291.jpg'
 
 # Your preferred terminal emulator
 set $term foot
@@ -29,7 +29,7 @@ set $term_float footclient --app-id floating_shell --window-size-chars 82x25
 set $menu wofi --show run
 
 # brightness control
-set $brightness ~/.config/sway/scripts/brightness.sh
+set $brightness $XDG_CONFIG_HOME/sway/scripts/brightness.sh
 set $brightness_up $brightness up
 set $brightness_down $brightness down
 
@@ -86,7 +86,7 @@ set $ws9 number 9
 set $ws10 number 10
 
 # screenshot 
-set $grimshot ~/.config/sway/scripts/grimshot.sh
+set $grimshot $XDG_CONFIG_HOME/sway/scripts/grimshot.sh
 set $pipe_output $grimshot save output -
 set $pipe_selection $grimshot save window -
 set $notify_paste  [[ $(wl-paste -l) == "image/png" ]] && notify-send "Screenshot copied to clipboard"
@@ -101,7 +101,7 @@ set $screenshot_selection $pipe_selection | $swappy && $notify_paste
 set $screenshot_selection_upload $pipe_selection | $swappy_pipe | $upload_pipe
 
 # autostarts
-set $foot_server '[ -x "$(command -v foot)" ] && ~/.config/sway/scripts/foot.sh --server'
+set $foot_server '[ -x "$(command -v foot)" ] && $XDG_CONFIG_HOME/sway/scripts/foot.sh --server'
 set $workspace_icons '[ -x "$(command -v sworkstyle)" ] && sworkstyle -d -l info &> /tmp/sworkstyle.log'
 set $mounting_daemon '[ -x "$(command -v pcmanfm)" ] && pcmanfm -d'
 # restart kanshi https://github.com/emersion/kanshi/issues/43#issuecomment-531679213
@@ -110,7 +110,7 @@ set $xdg-dirs '[ -x "$(command -v xdg-user-dirs-update)" ] && exec xdg-user-dirs
 # apply the keyboard layout from localectl if no keyboard layout has been set via config.d
 
 # daemons
-set $swappy_notify '[ -x "$(command -v swappy)" ] && ~/.config/sway/scripts/screenshot-notify.sh'
+set $swappy_notify '[ -x "$(command -v swappy)" ] && $XDG_CONFIG_HOME/sway/scripts/screenshot-notify.sh'
 set $swayr_daemon '[ -x "$(command -v swayrd)" ] && pkill swayrd; RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd &> /tmp/swayrd.log'
 set $cliphist_watch '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch pkill -RTMIN+9 waybar'
 set $cliphist_store '[ -x "$(command -v wl-paste)" ] && [ -x "$(command -v cliphist)" ] && wl-paste --watch cliphist store'
