@@ -1,4 +1,4 @@
 # dotfiles
 ```
-stow --target $HOME *
+stow --target $HOME */
 ```
