@@ -26,7 +26,7 @@ set $term_float footclient --app-id floating_shell --window-size-chars 82x25
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show run
+set $menu wofi
 
 # brightness control
 set $brightness $XDG_CONFIG_HOME/sway/scripts/brightness.sh

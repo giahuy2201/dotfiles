@@ -1,7 +1,7 @@
 mode=drun
 term=foot
-allow-images=true
-allow-markup=true
+allow_images=true
+allow_markup=true
 matching=contains
 insensitive=true
 key_down=Tab
