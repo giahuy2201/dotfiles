@@ -1,4 +1,9 @@
-mode=run
+mode=drun
+term=foot
 allow-images=true
 allow-markup=true
-term=foot
+matching=contains
+insensitive=true
+key_down=Tab
+key_expand=Right
+key_forward=Down
