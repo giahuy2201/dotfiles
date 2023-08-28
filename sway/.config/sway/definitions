@@ -1,4 +1,47 @@
-### Variables
+# Theme variables
+
+set $gtk-theme Adwaita
+set $icon-theme Adwaita
+set $cursor-theme Adwaita
+set $gtk-color-scheme prefer-dark
+set $gui-font Source Code Pro 13
+set $term-font Source Code Pro 13
+set $document-font Source Code Pro 13
+set $legacy-theme Adwaita
+set $legacy-font Source Code Pro 13
+
+set $color0  #151219
+set $color1  #424836
+set $color3  #b896ca
+set $color5  #e3ddef
+set $color6  #eeeeee
+set $color7  #ffffff
+set $color8  #Cd3f45
+set $color9  #d95afe
+set $color12 #a7c080
+
+#$color0
+set $background-color $color0
+#$color6
+set $text-color $color6
+#color1
+set $selection-color $color1
+#color12
+set $accent-color $color12
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG       Text    Indicator Child Border
+client.focused          $color5 $color12 $color0 $color6   $color12
+client.focused_inactive $color1 $color1  $color5 $color3   $color1
+client.unfocused        $color1 $color0  $color5 $color6   $color1
+client.urgent           $color8 $color8  $color0 $color9   $color8
+client.placeholder      $color0 $color0  $color5 $color0   $color0
+client.background       $color7
+
+# wallpaper
+set $wallpaper '$HOME/Pictures/wallpapers/forest.jpg'
+
+### Global variables
 
 # Logo key. Use Mod1 for Alt and Mod4 for Super.
 set $mod Mod4
@@ -15,9 +58,6 @@ set $bindsym bindsym --to-code
 
 # For user's convenience, the same for unbindsym
 set $unbindsym unbindsym --to-code
-
-# wallpaper
-set $wallpaper '$HOME/Pictures/wallpapers/galen-crout-175291.jpg'
 
 # Your preferred terminal emulator
 set $term foot
@@ -68,7 +108,6 @@ set $swayidle swayidle -w \
 
 # statusbar command
 set $statusbar waybar
-set $waybar_position top
 
 # calendar application
 set $calendar $term_float calcurse

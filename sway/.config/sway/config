@@ -1,10 +1,4 @@
-# styles - set the folder for your theme definition file
-set $theme ./themes/white-amethyst
-
-# theme variables
-include $theme/definitions
-
-# global variables
+# all variables
 include ./definitions
 
 include ./inputs/*
