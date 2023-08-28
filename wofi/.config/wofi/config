@@ -1,6 +1,7 @@
+prompt=
 mode=drun
 term=foot
-allow_images=true
+allow_images=false
 allow_markup=true
 matching=contains
 insensitive=true
