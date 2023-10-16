@@ -17,6 +17,9 @@ alt - tab : yabai -m query --windows --window recent | jq -r '.id' | xargs yabai
 # toggle window float
 shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
+# toggle window split type (horizontal and vertical)
+shift + alt - w : yabai -m window --toggle split
+
 # MODIFYING WINDOW SIZE
 
 # maximize a window
