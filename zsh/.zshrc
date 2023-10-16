@@ -43,3 +43,7 @@ knownrm() {
    sed -i '' "/$1/d" $HOME/.ssh/known_hosts
  fi
 }
+# Remove all .DS_Store
+alias dstrm='find . -name ".DS_Store" -print -delete'
+# Reload this config
+alias rfrsh='source $HOME/.zshrc'
