@@ -18,8 +18,9 @@ SAVEHIST=10000
 setopt appendhistory
 
 # Autocompletion using arrow keys (based on history)
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+bindkey '^[v' describe-key-briefly
 
 # Shell aliases
 alias la='ls -lah'
