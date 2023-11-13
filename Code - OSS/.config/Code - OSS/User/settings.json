@@ -3,5 +3,6 @@
     "workbench.startupEditor": "none",
     "explorer.confirmDelete": false,
     "vim.useCtrlKeys": false,
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "window.titleBarStyle": "custom"
 }
