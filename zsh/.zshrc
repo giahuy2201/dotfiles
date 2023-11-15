@@ -22,6 +22,9 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^[v' describe-key-briefly
 
+# Enable vi mode
+bindkey -v
+
 # Shell aliases
 alias la='ls -lah'
 
