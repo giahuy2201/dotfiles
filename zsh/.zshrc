@@ -18,8 +18,13 @@ SAVEHIST=10000
 setopt appendhistory
 
 # Autocompletion using arrow keys (based on history)
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey '^?' backward-delete-char
 bindkey '^[v' describe-key-briefly
 
 # Enable vi mode
