@@ -30,6 +30,10 @@ bindkey '^[v' describe-key-briefly
 # Enable vi mode
 bindkey -v
 
+# Enable command completion
+autoload -Uz compinit
+compinit
+
 # Shell aliases
 alias la='ls -lah'
 
