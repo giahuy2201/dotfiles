@@ -15,7 +15,9 @@ fi
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt appendhistory
+setopt inc_append_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
 
 # Autocompletion using arrow keys (based on history)
 autoload -U up-line-or-beginning-search
