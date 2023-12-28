@@ -1,0 +1,2 @@
+# dont link non-config files
+^minimal.zsh$
