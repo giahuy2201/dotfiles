@@ -1,2 +1,3 @@
 .DS_Store
-zsh/minimal.zsh
+/zsh/minimal.zsh
+/local
