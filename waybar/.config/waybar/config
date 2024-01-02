@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["network", "pulseaudio", "temperature", "backlight", "battery", "tray", "clock"],
+    "modules-right": ["network", "pulseaudio", "temperature", "backlight", "idle_inhibitor", "battery", "tray", "clock"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -107,6 +107,13 @@
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "battery": {
         "states": {
