@@ -1,3 +1,5 @@
 .DS_Store
 /zsh/minimal.zsh
 /local
+/Code - OSS/.config/Code - OSS
+!/Code - OSS/.config/Code - OSS/User/settings.json
