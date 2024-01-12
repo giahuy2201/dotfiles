@@ -55,7 +55,7 @@ knownrm() {
  if ! [[ $1 =~ $re ]] ; then
    echo "error: line number missing" >&2;
  else
-   sed -i '' "/$1/d" $HOME/.ssh/known_hosts
+   sed -i -e "/$1/d" $HOME/.ssh/known_hosts
  fi
 }
 # Remove all .DS_Store
