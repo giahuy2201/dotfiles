@@ -51,14 +51,18 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 
 # Delete lines containing a certain string (ip address) in the known_hosts file.
 knownrm() {
- re='^.{6,}$'
- if ! [[ $1 =~ $re ]] ; then
-   echo "error: line number missing" >&2;
- else
-   sed -i -e "/$1/d" $HOME/.ssh/known_hosts
- fi
+  re='^.{6,}$'
+  if ! [[ $1 =~ $re ]] ; then
+    echo "error: line number missing" >&2;
+  else
+    sed -i -e "/$1/d" $HOME/.ssh/known_hosts
+  fi
 }
 # Remove all .DS_Store
 alias dstrm='find . -name ".DS_Store" -print -delete'
+# Show port status and process
+port() {
+  lsof -i :$1 >&2;
+}
 # Reload this config
 alias rfrsh='source $HOME/.zshrc'
