@@ -64,5 +64,10 @@ alias dstrm='find . -name ".DS_Store" -print -delete'
 port() {
   lsof -i :$1 >&2;
 }
+# Get GID from group name
+gid(){
+  getent group $1 | cut -d: -f3
+}
+getent group $1 | cut -d: -f3
 # Reload this config
 alias rfrsh='source $HOME/.zshrc'
