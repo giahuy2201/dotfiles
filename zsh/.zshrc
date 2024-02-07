@@ -1,13 +1,19 @@
-
 # Enable minimal theme
-if [ -f $HOME/.config/zsh/minimal.zsh ]
-then
+if [ -f $HOME/.config/zsh/minimal.zsh ]; then
   source $HOME/.config/zsh/minimal.zsh
 fi
 
+# Include apps environments
+if [[ $(uname) == "Darwin" ]]; then
+  source $HOME/.config/zsh/darwin.zsh
+elif [[ $(uname) == "Linux" ]]; then
+  source $HOME/.config/zsh/linux.zsh
+else
+  echo 'Unknown OS!'
+fi
+
 # Include private aliases
-if [ -f $HOME/.aliases ]
-then
+if [ -f $HOME/.aliases ]; then
   source $HOME/.aliases
 fi
 
@@ -52,8 +58,8 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 # Delete lines containing a certain string (ip address) in the known_hosts file.
 knownrm() {
   re='^.{6,}$'
-  if ! [[ $1 =~ $re ]] ; then
-    echo "error: line number missing" >&2;
+  if ! [[ $1 =~ $re ]]; then
+    echo "error: line number missing" >&2
   else
     sed -i -e "/$1/d" $HOME/.ssh/known_hosts
   fi
@@ -62,10 +68,10 @@ knownrm() {
 alias dstrm='find . -name ".DS_Store" -print -delete'
 # Show port status and process
 port() {
-  lsof -i :$1 >&2;
+  lsof -i :$1 >&2
 }
 # Get GID from group name
-gid(){
+gid() {
   getent group $1 | cut -d: -f3
 }
 getent group $1 | cut -d: -f3
