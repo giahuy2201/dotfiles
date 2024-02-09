@@ -5,11 +5,16 @@ fi
 
 # Include apps environments
 if [[ $(uname) == "Darwin" ]]; then
-  source $HOME/.config/zsh/darwin.zsh
+  source $HOME/.config/common/darwin.zsh
 elif [[ $(uname) == "Linux" ]]; then
-  source $HOME/.config/zsh/linux.zsh
+  source $HOME/.config/common/linux.zsh
 else
   echo 'Unknown OS!'
+fi
+
+# Include shared aliases
+if [ -f $HOME/.config/common/.aliases ]; then
+  source $HOME/.config/common/.aliases
 fi
 
 # Include private aliases
@@ -17,10 +22,24 @@ if [ -f $HOME/.aliases ]; then
   source $HOME/.aliases
 fi
 
+# Reload this config
+alias rfrsh='source $HOME/.zshrc'
+
+# Delete lines containing a certain string (ip address) in the known_hosts file.
+knownrm() {
+  re='^.{6,}$'
+  if ! [[ $1 =~ $re ]]; then
+    echo "error: line number missing" >&2
+  else
+    sed -i -e "/$1/d" $HOME/.ssh/known_hosts
+  fi
+}
+
+# Zsh configs
 # Enable history
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=20000
 setopt inc_append_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
@@ -34,46 +53,9 @@ bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey '^?' backward-delete-char
 bindkey '^[v' describe-key-briefly
-
-# Enable vi mode
-bindkey -v
-
 # Enable command completion
 autoload -Uz compinit
 compinit
 
-# Shell aliases
-alias la='ls -lah'
-
-# Git aliases
-alias gs='git status'
-alias gc='git clone'
-alias ga='git add'
-alias gps='git push'
-alias gpl='git pull'
-alias gcmsg='git commit -m'
-alias gcane='git commit --amend --no-edit'
-alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
-
-# Delete lines containing a certain string (ip address) in the known_hosts file.
-knownrm() {
-  re='^.{6,}$'
-  if ! [[ $1 =~ $re ]]; then
-    echo "error: line number missing" >&2
-  else
-    sed -i -e "/$1/d" $HOME/.ssh/known_hosts
-  fi
-}
-# Remove all .DS_Store
-alias dstrm='find . -name ".DS_Store" -print -delete'
-# Show port status and process
-port() {
-  lsof -i :$1 >&2
-}
-# Get GID from group name
-gid() {
-  getent group $1 | cut -d: -f3
-}
-getent group $1 | cut -d: -f3
-# Reload this config
-alias rfrsh='source $HOME/.zshrc'
+# Enable vi mode
+bindkey -v
