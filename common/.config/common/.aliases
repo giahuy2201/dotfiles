@@ -1,0 +1,38 @@
+# Shell aliases
+alias la='ls -lah'
+
+# Git aliases
+alias gs='git status'
+alias gc='git clone'
+alias ga='git add'
+alias gps='git push'
+alias gpl='git pull'
+alias gcmsg='git commit -m'
+alias gcane='git commit --amend --no-edit'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+alias glg='git log --graph --oneline --decorate --all'
+
+# Shortcuts
+# Get group id from group name
+gid() {
+  getent group $1 | cut -d: -f3
+}
+glp() {
+  git log --author=$1 --all
+}
+# Remove all .DS_Store recursively
+dstrm() {
+  if [[ $# -eq 0 ]]; then
+    find . -name ".DS_Store" -print -delete
+  else
+    find $1 -name ".DS_Store" -print -delete
+  fi
+}
+# Remove all node_modules recursively
+ndmrm() {
+  if [[ $# -eq 0 ]]; then
+    find . -type d -name "node_modules" -print0 -exec rm -rf {} +
+  else
+    find $1 -type d -name "node_modules" -print0 -exec rm -rf {} +
+  fi
+}
