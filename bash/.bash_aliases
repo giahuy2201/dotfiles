@@ -1,8 +1,8 @@
 # Include apps environments
 if [[ $(uname) == "Darwin" ]]; then
-  source $HOME/.config/zsh/darwin.zsh
+  source $HOME/.config/common/darwin.zsh
 elif [[ $(uname) == "Linux" ]]; then
-  source $HOME/.config/zsh/linux.zsh
+  source $HOME/.config/common/linux.zsh
 else
   echo 'Unknown OS!'
 fi
