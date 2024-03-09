@@ -2,7 +2,7 @@
 ```
 stow -v -t $HOME */
 ```
-or
+or overwrite existing files
 ```
 stow -v -t $HOME --adopt */
 ```
