@@ -2,7 +2,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Poetry
-export PATH="$HOME/.local/share/pypoetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export POETRY_CONFIG_DIR="$HOME/.config/pypoetry"
 # Node Version Manager
 export NVM_DIR="$HOME/.nvm"
