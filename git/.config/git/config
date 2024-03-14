@@ -8,6 +8,3 @@
 [core]
 	autocrlf = input
 	whitespace = cr-at-eol
-[alias]
-	lg = log --graph --oneline --decorate --all
-	lme = log --author=Huy --all
