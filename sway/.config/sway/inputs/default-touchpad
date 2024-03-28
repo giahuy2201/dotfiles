@@ -9,3 +9,5 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
