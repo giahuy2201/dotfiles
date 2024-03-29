@@ -36,3 +36,14 @@ ndmrm() {
     find $1 -type d -name "node_modules" -print0 -exec rm -rf {} +
   fi
 }
+# Update dotfiles
+udotf() {
+  cwd=$(pwd)
+  cd $HOME/dotfiles
+  if [[ $1 == "reset" ]]; then
+    git reset --hard main
+  fi
+  gpl
+  stow -v -t $HOME */
+  cd $cwd
+}
