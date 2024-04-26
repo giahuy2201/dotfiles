@@ -1,0 +1,7 @@
+{
+    "window.zoomLevel": 1,
+    "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "custom",
+    "workbench.startupEditor": "none",
+    "vim.useCtrlKeys": false,
+}
