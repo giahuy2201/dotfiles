@@ -4,5 +4,8 @@
     "explorer.confirmDelete": false,
     "vim.useCtrlKeys": false,
     "window.menuBarVisibility": "toggle",
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    }
 }
