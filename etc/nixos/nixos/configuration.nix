@@ -74,7 +74,7 @@
   users.users.giahuy = {
     isNormalUser = true;
     description = "giahuy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "wireshark" "keyd"];
     shell = pkgs.zsh;
     useDefaultShell = true;
     packages = with pkgs; [
@@ -104,11 +104,11 @@
   programs.wireshark.enable = true;
   programs.git.enable = true;
   programs.tmux.enable = true;
-  programs.screen.enable = true;
+  #programs.screen.enable = true;
   programs.flashrom.enable = true;
 
   programs.neovim = {
-    enabled = true;
+    enable = true;
     defaultEditor = true;
   };
 
