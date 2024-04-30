@@ -82,6 +82,8 @@
     ];
   };
 
+  users.groups.keyd = {};
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -98,6 +100,8 @@
     powertop
     vscodium
     stow
+    wireshark
+    keyd
   ];
 
   programs.zsh.enable = true;
