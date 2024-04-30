@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -84,7 +84,7 @@
 
   users.groups.keyd = {};
 
-  systemd.services.keyd.serviceConfig.CapabilityBoundingSet = [
+  systemd.services.keyd.serviceConfig.CapabilityBoundingSet = lib.mkForce [
     "CAP_SETGID"                                               
   ];                                                           
 
