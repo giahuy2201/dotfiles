@@ -115,6 +115,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.flatpak.enable = true;
+  services.keyd.enable = true;
 
   system.stateVersion = "23.05";
 
