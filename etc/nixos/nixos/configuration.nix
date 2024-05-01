@@ -85,7 +85,8 @@
   users.groups.keyd = {};
 
   systemd.services.keyd.serviceConfig.CapabilityBoundingSet = lib.mkForce [
-    "CAP_SETGID"                                               
+    "CAP_SYS_NICE"
+    "CAP_SETGID"
   ];                                                           
 
   # Allow unfree packages
