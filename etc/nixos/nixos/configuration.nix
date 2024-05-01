@@ -7,8 +7,17 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      # useOSProber = true;
+    };
+  };
 
   networking.hostName = "kokomi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -108,6 +117,7 @@
     wireshark
     keyd
     xclip
+    efibootmgr
     gnome.gnome-tweaks
   ];
 
@@ -126,7 +136,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.flatpak.enable = true;
-  services.keyd.enable = true;
+  # services.keyd.enable = true;
 
   system.stateVersion = "23.05";
 
