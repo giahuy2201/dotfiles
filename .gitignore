@@ -2,3 +2,5 @@
 /zsh/minimal.zsh
 /local/*
 !.stow-local-ignore
+/etc/wireguard
+/etc/keyd/keyd/default.conf
