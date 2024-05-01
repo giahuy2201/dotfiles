@@ -106,6 +106,7 @@
     stow
     wireshark
     keyd
+    xclip
   ];
 
   programs.zsh.enable = true;
