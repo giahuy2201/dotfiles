@@ -108,6 +108,7 @@
     wireshark
     keyd
     xclip
+    gnome.gnome-tweaks
   ];
 
   programs.zsh.enable = true;
