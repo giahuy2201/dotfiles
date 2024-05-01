@@ -1,5 +1,6 @@
 .DS_Store
 /zsh/minimal.zsh
 /local
+!/local/.stow-local-ignore
 /Code - OSS/.config/Code - OSS
 !/Code - OSS/.config/Code - OSS/User/settings.json
