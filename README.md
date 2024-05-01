@@ -16,3 +16,9 @@ with `sudo`
 cd etc
 stow -v -t /etc */
 ```
+
+## Mac configs
+
+```
+ln -s ../../../../dotfiles/VSCodium/.config/VSCodium/User/settings.json $HOME/Library/Application\ Support/VSCodium/User/settings.json
+```
