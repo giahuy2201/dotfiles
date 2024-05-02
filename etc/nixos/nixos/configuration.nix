@@ -119,6 +119,7 @@
     xclip
     efibootmgr
     gnome.gnome-tweaks
+    wireguard-tools
   ];
 
   programs.zsh.enable = true;
