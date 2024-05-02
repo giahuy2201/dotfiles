@@ -143,6 +143,7 @@
   services.openssh.enable = true;
   services.flatpak.enable = true;
   # services.keyd.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   system.stateVersion = "23.05";
 
