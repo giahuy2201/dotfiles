@@ -97,11 +97,14 @@
     "CAP_SYS_NICE"
     "CAP_SETGID"
   ];                                                           
+  
+  # qt
+  qt.enable = true;
+  qt.platformTheme = "gnome";
+  qt.style = "adwaita-dark";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  environment.variables.QT_STYLE_OVERRIDE = lib.mkForce "adwaita-dark";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -122,7 +125,6 @@
     efibootmgr
     gnome.gnome-tweaks
     wireguard-tools
-    adwaita-qt
   ];
 
   programs.zsh.enable = true;
