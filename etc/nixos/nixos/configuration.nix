@@ -101,6 +101,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  environment.variables.QT_STYLE_OVERRIDE = lib.mkForce "adwaita-dark";
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -120,6 +122,7 @@
     efibootmgr
     gnome.gnome-tweaks
     wireguard-tools
+    adwaita-qt
   ];
 
   programs.zsh.enable = true;
