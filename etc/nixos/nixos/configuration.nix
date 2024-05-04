@@ -125,6 +125,7 @@
     efibootmgr
     gnome.gnome-tweaks
     wireguard-tools
+    nerdfonts
   ];
 
   programs.zsh.enable = true;
