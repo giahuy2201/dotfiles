@@ -126,6 +126,8 @@
     gnome.gnome-tweaks
     wireguard-tools
     nerdfonts
+    gcc
+    pipx
   ];
 
   programs.zsh.enable = true;
