@@ -18,6 +18,13 @@
       # useOSProber = true;
     };
   };
+  # Enable iommu
+
+  boot.kernelParams = [
+    # enable IOMMU
+    "intel_iommu=on"
+    "iommu=pt"
+  ];
 
   networking.hostName = "kokomi"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -83,7 +90,7 @@
   users.users.giahuy = {
     isNormalUser = true;
     description = "giahuy";
-    extraGroups = [ "networkmanager" "wheel" "wireshark" "keyd"];
+    extraGroups = [ "networkmanager" "wheel" "wireshark" "keyd" "libvirtd"];
     shell = pkgs.zsh;
     useDefaultShell = true;
     packages = with pkgs; [
@@ -96,7 +103,7 @@
   systemd.services.keyd.serviceConfig.CapabilityBoundingSet = lib.mkForce [
     "CAP_SYS_NICE"
     "CAP_SETGID"
-  ];                                                           
+  ];                                       
   
   # qt
   qt.enable = true;
@@ -128,6 +135,10 @@
     nerdfonts
     gcc
     pipx
+    python3
+    libvirt
+    virt-manager
+    usbtop
   ];
 
   programs.zsh.enable = true;
@@ -141,6 +152,23 @@
     enable = true;
     defaultEditor = true;
   };
+
+  # Enable libvirt daemon
+  virtualisation.libvirtd = {
+  enable = true;
+  qemu = {
+    package = pkgs.qemu_kvm;
+    runAsRoot = true;
+    swtpm.enable = true;
+    ovmf = {
+      enable = true;
+      packages = [(pkgs.OVMF.override {
+        secureBoot = true;
+        tpmSupport = true;
+      }).fd];
+    };
+  };
+};
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
