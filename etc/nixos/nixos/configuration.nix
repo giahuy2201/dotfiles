@@ -188,4 +188,28 @@
   boot.initrd.luks.devices.home.device = "/dev/disk/by-uuid/21532a09-c135-41d2-83cf-0da701daa4a4";
   fileSystems."/home".device = "/dev/mapper/home";
 
+  fileSystems."/mnt/Data" = {
+    device = "truenas.home:/mnt/Cold/Data";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  };
+
+  fileSystems."/mnt/Backup" = {
+    device = "truenas.home:/mnt/Cold/Backup";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  };
+
+  fileSystems."/mnt/Flash" = {
+    device = "truenas.home:/mnt/Hot/Flash";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  };
+
+  fileSystems."/mnt/Config" = {
+    device = "truenas.home:/mnt/Hot/Config";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
+  };
+
 }
