@@ -160,6 +160,13 @@
     defaultEditor = true;
   };
 
+  # Install CJK fonts
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+  ];
+
   # Enable libvirt daemon
   virtualisation.libvirtd = {
   enable = true;
