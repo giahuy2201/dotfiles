@@ -105,6 +105,12 @@
     "CAP_SETGID"
   ];                                       
   
+  services.udev = {
+    extraRules = ''
+      SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
+    '';
+  };
+
   # qt
   qt.enable = true;
   qt.platformTheme = "gnome";
