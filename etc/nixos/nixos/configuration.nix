@@ -64,7 +64,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -145,6 +145,7 @@
     libvirt
     virt-manager
     usbtop
+    gparted
   ];
 
   programs.zsh.enable = true;
