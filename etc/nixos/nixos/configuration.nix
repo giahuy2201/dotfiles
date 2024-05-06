@@ -16,6 +16,22 @@
       efiSupport = true;
       device = "nodev";
       # useOSProber = true;
+      extraEntries = ''
+      menuentry 'Arch Linux (on /dev/nvme0n1p2)' --class arch --class gnu-linux --class gnu --class os $menuentry_id_option 'osprober-gnulinux-simple-7a008580-fefa-48d7-b134-8e179cdcc59a' {
+        insmod part_gpt
+        insmod ext2
+        search --no-floppy --fs-uuid --set=root 7a008580-fefa-48d7-b134-8e179cdcc59a
+        linux /boot/vmlinuz-linux root=UUID=7a008580-fefa-48d7-b134-8e179cdcc59a rw loglevel=3 quiet
+        initrd /boot/initramfs-linux.img
+      }
+      menuentry 'Debian GNU/Linux 12 (bookworm) (on /dev/nvme0n1p3)' --class debian --class gnu-linux --class gnu --class os $menuentry_id_option 'osprober-gnulinux-simple-a0ebae34-8ca7-4995-85a8-7a05827b379d' {
+        insmod part_gpt
+        insmod ext2
+        search --no-floppy --fs-uuid --set=root a0ebae34-8ca7-4995-85a8-7a05827b379d
+        linux /boot/vmlinuz-6.1.0-20-amd64 root=UUID=a0ebae34-8ca7-4995-85a8-7a05827b379d ro quiet
+        initrd /boot/initrd.img-6.1.0-20-amd64
+      }
+      '';
     };
   };
   # Enable iommu
@@ -149,6 +165,7 @@
     virt-manager
     usbtop
     gparted
+    vlc
   ];
 
   programs.zsh.enable = true;
