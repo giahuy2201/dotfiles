@@ -76,6 +76,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable the GNOME Desktop Environment.
+  services.xserver.desktopManager.xfce.enable = true;
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -130,10 +133,12 @@
     '';
   };
 
-  # qt
-  qt.enable = true;
-  qt.platformTheme = "gnome";
-  qt.style = "adwaita-dark";
+  # Enable QT
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -211,6 +216,7 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   system.stateVersion = "23.05";
+  system.autoUpgrade.enable  = true;
 
   boot.initrd.luks.devices.home.device = "/dev/disk/by-uuid/21532a09-c135-41d2-83cf-0da701daa4a4";
   fileSystems."/home".device = "/dev/mapper/home";
