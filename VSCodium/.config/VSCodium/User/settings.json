@@ -3,6 +3,7 @@
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "none",
+    "git.confirmSync": false,
     "vim.useCtrlKeys": false,
     "vim.handleKeys": {
         "<C-d>": false,
