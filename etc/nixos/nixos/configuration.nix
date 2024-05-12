@@ -117,7 +117,7 @@
   users.users.giahuy = {
     isNormalUser = true;
     description = "giahuy";
-    extraGroups = [ "networkmanager" "wheel" "wireshark" "keyd" "libvirtd"];
+    extraGroups = [ "networkmanager" "wheel" "wireshark" "keyd" "libvirtd" ];
     shell = pkgs.zsh;
     useDefaultShell = true;
     packages = with pkgs; [
@@ -176,6 +176,10 @@
     usbtop
     gparted
     vlc
+    nmap
+    ubootTools
+    unzip
+    wineWowPackages.waylandFull
   ];
 
   programs.zsh.enable = true;
