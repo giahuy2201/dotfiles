@@ -214,6 +214,12 @@
   };
 };
 
+  services.syncthing = {
+    enable = true;
+    user = "giahuy";
+    configDir = "/home/giahuy/.config/syncthing";   # Folder for Syncthing's settings and keys
+  };
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.flatpak.enable = true;
