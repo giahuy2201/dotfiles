@@ -177,6 +177,8 @@
     gparted
     vlc
     nmap
+    dig
+    qbittorrent
     ubootTools
     unzip
     wineWowPackages.waylandFull
