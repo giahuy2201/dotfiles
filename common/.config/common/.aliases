@@ -40,9 +40,9 @@ ndmrm() {
 # Show disk usage 1 level depth sorted by size
 dubs() {
   if [[ $# -eq 0 ]]; then
-    sudo du -h --max-depth=1 | sort -h
+    sudo du -hx --max-depth=1 | sort -h
   else
-    sudo du -h --max-depth=1 $1 | sort -h
+    sudo du -hx --max-depth=1 $1 | sort -h
   fi
 }
 # Update dotfiles
