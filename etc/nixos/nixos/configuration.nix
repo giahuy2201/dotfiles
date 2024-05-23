@@ -181,6 +181,7 @@
     qbittorrent
     ubootTools
     unzip
+    binwalk
     wineWowPackages.waylandFull
   ];
 
