@@ -151,38 +151,38 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    pciutils
-    usbutils
-    wget
-    neofetch
-    htop
+    binwalk
     btop
-    iperf3
-    powertop
-    vscodium
-    stow
-    wireshark
-    keyd
-    xclip
-    efibootmgr
-    gnome.gnome-tweaks
-    wireguard-tools
-    nerdfonts
-    gcc
-    pipx
-    python3
-    libvirt
-    virt-manager
-    usbtop
-    gparted
-    vlc
-    nmap
     dig
+    efibootmgr
+    gcc
+    gnome.gnome-tweaks
+    gparted
+    htop
+    iperf3
+    keyd
+    libvirt
+    neofetch
+    nerdfonts
+    nmap
+    pciutils
+    pipx
+    powertop
+    python3
     qbittorrent
+    stow
     ubootTools
     unzip
-    binwalk
+    usbtop
+    usbutils
+    virt-manager
+    vlc
+    vscodium
+    wget
     wineWowPackages.waylandFull
+    wireguard-tools
+    wireshark
+    xclip
   ];
 
   programs.zsh.enable = true;
