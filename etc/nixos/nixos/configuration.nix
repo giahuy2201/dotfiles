@@ -164,6 +164,7 @@
     powertop
     python3
     qbittorrent
+    screen
     stow
     ubootTools
     unzip
@@ -183,7 +184,6 @@
   programs.wireshark.enable = true;
   programs.git.enable = true;
   programs.tmux.enable = true;
-  #programs.screen.enable = true;
   programs.flashrom.enable = true;
 
   programs.neovim = {
