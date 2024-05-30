@@ -21,4 +21,5 @@ stow -v -t /etc */
 
 ```
 ln -s ../../../../dotfiles/VSCodium/.config/VSCodium/User/settings.json $HOME/Library/Application\ Support/VSCodium/User/settings.json
+ln -s ../../../../dotfiles/VSCodium/.config/VSCodium/User/keybindings.json $HOME/Library/Application\ Support/VSCodium/User/keybindings.json
 ```
