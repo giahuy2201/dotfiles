@@ -21,6 +21,10 @@ gid() {
 glp() {
   git log --author=$1 --all
 }
+# Find all files that are owned by one user and chown them to another user
+mpwnr() {
+  find $1 -user $2 -exec chown $3 {} \;
+}
 # Remove all .DS_Store recursively
 dstrm() {
   if [[ $# -eq 0 ]]; then
