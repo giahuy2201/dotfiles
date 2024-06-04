@@ -14,18 +14,18 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 alias glg='git log --graph --oneline --decorate --all'
 
 # Shortcuts
-# Get group id from group name
+# Get group id from group name: gid <group_name>
 gid() {
   getent group $1 | cut -d: -f3
 }
 glp() {
   git log --author=$1 --all
 }
-# Find all files that are owned by one user and chown them to another user
+# Find all files that are owned by one user and chown them to another user: mpwnr <dir> <from_user/uid> <to_user/uid>
 mpwnr() {
   find $1 -user $2 -exec chown -h $3 {} \;
 }
-# Remove all .DS_Store recursively
+# Remove all .DS_Store recursively: dstrm [dir]
 dstrm() {
   if [[ $# -eq 0 ]]; then
     find . -name ".DS_Store" -print -delete
@@ -33,7 +33,7 @@ dstrm() {
     find $1 -name ".DS_Store" -print -delete
   fi
 }
-# Remove all node_modules recursively
+# Remove all node_modules recursively: ndmrm [dir]
 ndmrm() {
   if [[ $# -eq 0 ]]; then
     find . -type d -name "node_modules" -print0 -exec rm -rf {} +
@@ -41,7 +41,7 @@ ndmrm() {
     find $1 -type d -name "node_modules" -print0 -exec rm -rf {} +
   fi
 }
-# Show disk usage 1 level depth sorted by size
+# Show disk usage 1 level depth sorted by size: dubs [dir]
 dubs() {
   if [[ $# -eq 0 ]]; then
     sudo du -hx --max-depth=1 | sort -h
@@ -49,7 +49,7 @@ dubs() {
     sudo du -hx --max-depth=1 $1 | sort -h
   fi
 }
-# Update dotfiles
+# Update dotfiles: udotf ['reset']
 udotf() {
   cwd=$(pwd)
   cd $HOME/dotfiles
