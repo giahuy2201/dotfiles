@@ -110,3 +110,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Add user local bins to PATH
+if [ -d $HOME/.local/bin ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
