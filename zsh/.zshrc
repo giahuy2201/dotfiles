@@ -31,7 +31,7 @@ knownrm() {
   if ! [[ $1 =~ $re ]]; then
     echo "error: line number missing" >&2
   else
-    sed -i -e "/$1/d" $HOME/.ssh/known_hosts
+    ssh-keygen -f "$HOME/.ssh/known_hosts" -R "$1"
   fi
 }
 
