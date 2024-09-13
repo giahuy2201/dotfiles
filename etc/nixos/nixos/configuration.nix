@@ -69,6 +69,8 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
+  hardware.rtl-sdr.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -76,13 +78,13 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.desktopManager.xfce.enable = true;
+  # Enable the KDE Desktop Environment.
+  #services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -111,7 +113,7 @@
   users.users.giahuy = {
     isNormalUser = true;
     description = "giahuy";
-    extraGroups = [ "networkmanager" "wheel" "wireshark" "keyd" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "wireshark" "keyd" "libvirtd" "plugdev" ];
     shell = pkgs.zsh;
     useDefaultShell = true;
     packages = with pkgs; [
@@ -156,6 +158,7 @@
     iperf3
     keyd
     libvirt
+    minicom
     neofetch
     nerdfonts
     nmap
@@ -227,7 +230,7 @@
   # services.keyd.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
   system.autoUpgrade.enable  = true;
 
   boot.initrd.luks.devices.home.device = "/dev/disk/by-uuid/21532a09-c135-41d2-83cf-0da701daa4a4";
