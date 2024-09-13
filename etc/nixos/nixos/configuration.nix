@@ -77,9 +77,10 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.defaultSession = "plasma";
 
   # Enable the KDE Desktop Environment.
-  #services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -107,7 +108,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.giahuy = {
@@ -122,11 +123,6 @@
   };
 
   users.groups.keyd = {};
-
-  systemd.services.keyd.serviceConfig.CapabilityBoundingSet = lib.mkForce [
-    "CAP_SYS_NICE"
-    "CAP_SETGID"
-  ];                                       
   
   services.udev = {
     extraRules = ''
@@ -195,7 +191,7 @@
   };
 
   # Install CJK fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -229,6 +225,8 @@
   services.flatpak.enable = true;
   # services.keyd.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+
+  programs.ssh.askPassword = lib.mkForce "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
 
   system.stateVersion = "24.05";
   system.autoUpgrade.enable  = true;
