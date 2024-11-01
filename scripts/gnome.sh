@@ -15,3 +15,5 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['terminate:ctrl_alt_
 gsettings set org.gnome.desktop.wm.keybindings switch-applications "[]"
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab', '<Super>Tab']"
 gsettings set org.gnome.shell.window-switcher current-workspace-only 'false'
+# Enable battery percentage on top bar
+gsettings set org.gnome.desktop.interface show-battery-percentage 'true'
