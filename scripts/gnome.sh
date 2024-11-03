@@ -1,10 +1,4 @@
-# Set fonts
-gsettings set org.gnome.desktop.interface font-name 'JetBrainsMono Nerd Font 13'
-gsettings set org.gnome.desktop.interface document-font-name 'JetBrainsMono Nerd Font 13'
-gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 13'
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'JetBrainsMono Nerd Font 13'
-# Set theme
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
 # Set top bar
 gsettings set org.gnome.desktop.interface clock-show-weekday 'true'
 # Set title bar
