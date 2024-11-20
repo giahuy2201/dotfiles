@@ -110,3 +110,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Set neovim as manpager
+export MANPAGER='nvim +Man!'
