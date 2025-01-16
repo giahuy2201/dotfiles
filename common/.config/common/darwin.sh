@@ -14,7 +14,7 @@ if [ -f $HOME/.local/bin/poetry ]; then
 fi
 
 # Pyenv
-if [ -f $HOME/.pyenv/bin/pyenv ]; then
+if [ -f $HOMEBREW_PREFIX/bin/pyenv ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init - zsh)"
