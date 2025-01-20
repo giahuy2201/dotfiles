@@ -20,6 +20,12 @@ if [ -f $HOMEBREW_PREFIX/bin/pyenv ]; then
   eval "$(pyenv init - zsh)"
 fi
 
+# ruby-install
+if [ -f $HOMEBREW_PREFIX/bin/ruby-install ]; then
+  source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+  source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+fi
+
 # Node Version Manager
 if [ -d $HOME/.nvm ]; then
   export NVM_DIR="$HOME/.nvm"
