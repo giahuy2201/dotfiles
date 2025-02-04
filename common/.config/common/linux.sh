@@ -48,3 +48,17 @@ fownr() {
     sudo chown -R $USER:$USER $1
   fi
 }
+
+# Mount NFS shares with noauto in fstab
+mnt() {
+  if [[ $# -eq 0 ]]; then
+    echo "Share argument missing!"
+  else
+    sudo mount /mnt/$1
+  fi
+}
+
+# Unmount all 
+umnt() {
+  sudo umount /mnt/*
+}
