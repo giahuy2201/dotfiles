@@ -1,3 +1,7 @@
+# ----------
+# SHORTCUTS: work on both platform
+# ----------
+
 # Shell aliases
 alias la='ls -lah'
 
@@ -13,26 +17,21 @@ alias gcane='git commit --amend --no-edit'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias glg='git log --graph --oneline --decorate --all'
 
-# Shortcuts
+# Show git log by author
+glp() {
+  git log --author=$1 --all
+}
+
 # Get group id from group name: gid <group_name>
 gid() {
   getent group $1 | cut -d: -f3
 }
-glp() {
-  git log --author=$1 --all
-}
+
 # Find all files that are owned by one user and chown them to another user: mpwnr <dir> <from_user/uid> <to_user/uid>
 mpwnr() {
   find $1 -user $2 -exec chown -h $3 {} \;
 }
-# Own folder recursively
-fownr() {
-  if [[ $# -eq 0 ]]; then
-    echo "Directory argument missing!"
-  else
-    sudo chown -R $USER:$USER $1
-  fi
-}
+
 # Remove all .DS_Store recursively: dstrm [dir]
 dstrm() {
   if [[ $# -eq 0 ]]; then
@@ -41,6 +40,7 @@ dstrm() {
     find $1 -name ".DS_Store" -print -delete
   fi
 }
+
 # Remove all node_modules recursively: ndmrm [dir]
 ndmrm() {
   if [[ $# -eq 0 ]]; then
@@ -49,10 +49,12 @@ ndmrm() {
     find $1 -type d -name "node_modules" -print0 -exec rm -rf {} +
   fi
 }
+
 # Remove all .sync-conflict files recursively
 sycfrm() {
     find . -name "*.sync-conflict*" -print0 -exec rm -rf {} +
 }
+
 # Show disk usage 1 level depth sorted by size: dubs [dir]
 dubs() {
   if [[ $# -eq 0 ]]; then
@@ -61,6 +63,7 @@ dubs() {
     sudo du -hx --max-depth=1 $1 | sort -h
   fi
 }
+
 # Update dotfiles: udotf ['reset']
 udotf() {
   cwd=$(pwd)
