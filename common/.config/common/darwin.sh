@@ -42,4 +42,4 @@ fi
 # ----------
 
 # Flush macos dns
-alias dnsrf=sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+alias dnsrf='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
