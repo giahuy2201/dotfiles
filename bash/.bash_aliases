@@ -20,8 +20,6 @@ fi
 # Reload this config
 alias rfrsh='source $HOME/.bashrc'
 
-# Bash configs
-if [[ $- == *i* ]]; then
-  bind '"\e[A": history-search-backward'
-  bind '"\e[B": history-search-forward'
-fi
+# Enable partial command completion with arrow keys
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
