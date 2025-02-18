@@ -52,12 +52,20 @@ ndmrm() {
 
 # Remove all .sync-conflict files recursively
 sycfrm() {
+  if [[ $# -eq 0 ]]; then
     find . -type d -name "*.sync-conflict*" -print0 -exec rm -rf {} +
+  else
+    find $1 -type d -name "*.sync-conflict*" -print0 -exec rm -rf {} +
+  fi
 }
 
 # Remove all .venv folders recursively
 venvrm() {
+  if [[ $# -eq 0 ]]; then
     find . -type d -name ".venv" -print0 -exec rm -rf {} +
+  else
+    find $1 -type d -name ".venv" -print0 -exec rm -rf {} +
+  fi
 }
 
 # Show disk usage 1 level depth sorted by size: dubs [dir]
