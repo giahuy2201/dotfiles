@@ -27,6 +27,8 @@ gid() {
   getent group $1 | cut -d: -f3
 }
 
+find . -type f | cut -d/ -f2 | sort | uniq -c
+
 # Count number of files in a directory
 cntfl() {
   if [[ $# -eq 0 ]]; then
@@ -62,9 +64,9 @@ ndmrm() {
 # Remove all .sync-conflict files recursively
 sycfrm() {
   if [[ $# -eq 0 ]]; then
-    find . -type d -name "*.sync-conflict*" -print0 -exec rm -rf {} +
+    find . -name "*.sync-conflict*" -print0 -exec rm -rf {} +
   else
-    find $1 -type d -name "*.sync-conflict*" -print0 -exec rm -rf {} +
+    find $1 -name "*.sync-conflict*" -print0 -exec rm -rf {} +
   fi
 }
 
