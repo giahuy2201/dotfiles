@@ -27,8 +27,6 @@ gid() {
   getent group $1 | cut -d: -f3
 }
 
-find . -type f | cut -d/ -f2 | sort | uniq -c
-
 # Count number of files in a directory
 cntfl() {
   if [[ $# -eq 0 ]]; then
@@ -98,4 +96,16 @@ udotf() {
   gpl
   stow -v -t $HOME */
   cd $cwd
+}
+
+# List subfolders by number of files in each
+lnfs() {
+  if [[ $# -eq 0 ]]; then
+    find . -type f | cut -d/ -f2 | sort | uniq -c | sort -V
+  else
+    cwd=$(pwd)
+    cd $1
+    find . -type f | cut -d/ -f2 | sort | uniq -c | sort -V
+    cd $cwd
+  fi
 }
