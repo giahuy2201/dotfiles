@@ -89,12 +89,12 @@ dubs() {
 # Update dotfiles: udotf ['reset']
 udotf() {
   cwd=$(pwd)
-  cd $HOME/dotfiles
+  cd $HOME/dotfiles && \
   if [[ $1 == "reset" ]]; then
     git reset --hard main
-  fi
-  gpl
-  stow -v -t $HOME */
+  fi && \
+  gpl && \
+  stow -v -t $HOME */ && \
   cd $cwd
 }
 
@@ -104,8 +104,8 @@ lnfs() {
     find . -type f | cut -d/ -f2 | sort | uniq -c | sort -V
   else
     cwd=$(pwd)
-    cd $1
-    find . -type f | cut -d/ -f2 | sort | uniq -c | sort -V
+    cd $1 && \
+    find . -type f | cut -d/ -f2 | sort | uniq -c | sort -V && \
     cd $cwd
   fi
 }
