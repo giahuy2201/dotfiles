@@ -7,6 +7,7 @@ To overwrite existing files
 
 ```
 stow -v -t $HOME --adopt */
+git checkout .
 ```
 
 ## Linux configs
