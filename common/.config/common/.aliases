@@ -109,3 +109,6 @@ lnfs() {
     cd $cwd
   fi
 }
+
+# Activate poetry environment with shortcut
+alias poetry-up='eval $(poetry env activate)'
