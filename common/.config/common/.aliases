@@ -98,6 +98,15 @@ udotf() {
   cd $cwd
 }
 
+# Update .stignore
+ustgn() {
+  cwd=$(pwd)
+  cd $HOME/linux-backup && \
+  gpl && \
+  ./copy-stignores.sh && \
+  cd $cwd
+}
+
 # List subfolders by number of files in each
 lnfs() {
   if [[ $# -eq 0 ]]; then
