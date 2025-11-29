@@ -62,3 +62,10 @@ mnt() {
 umnt() {
   sudo umount /mnt/*
 }
+
+# ----------
+# SHORTCUTS
+# ----------
+
+# Copy whole pane (wayland)
+alias tmux2clip='tmux capture-pane -pS - | wl-copy'

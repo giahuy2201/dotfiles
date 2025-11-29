@@ -43,3 +43,6 @@ fi
 
 # Flush macos dns
 alias dnsrf='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+
+# Copy whole pane
+alias tmux2clip='tmux capture-pane -pS - | pbcopy'

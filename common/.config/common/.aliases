@@ -17,6 +17,9 @@ alias gcane='git commit --amend --no-edit'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 alias glg='git log --graph --oneline --decorate --all'
 
+# Activate poetry environment with shortcut
+alias poetry-up='eval $(poetry env activate)'
+
 # Show git log by author
 glp() {
   git log --author=$1 --all
@@ -118,6 +121,3 @@ lnfs() {
     cd $cwd
   fi
 }
-
-# Activate poetry environment with shortcut
-alias poetry-up='eval $(poetry env activate)'
