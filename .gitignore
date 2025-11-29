@@ -1,8 +1,5 @@
 .DS_Store
 /zsh/minimal.zsh
 /local/*
-/nvim/*
-!.vimrc
-!.stow-local-ignore
 /etc/wireguard
 /etc/keyd/keyd/default.conf
