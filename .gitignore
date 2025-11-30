@@ -1,5 +1,7 @@
 .DS_Store
 /zsh/minimal.zsh
 /local/*
+/wireshark/*
+!wireshark/dfilters
 /etc/wireguard
 /etc/keyd/keyd/default.conf

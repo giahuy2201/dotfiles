@@ -10,7 +10,7 @@ stow -v -t $HOME --adopt */
 git checkout .
 ```
 
-## Linux configs
+## Linux `/etc` configs
 with `sudo`
 
 ```
@@ -18,7 +18,7 @@ cd etc
 stow -v -t /etc */
 ```
 
-## Mac configs
+## Mac configs in `Library/Application Support`
 
 Pypoetry won't work with symbolic link
 ```sh
