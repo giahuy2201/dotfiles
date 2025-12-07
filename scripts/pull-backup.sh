@@ -1,0 +1,1 @@
+git clone https://git.home.suunhuy.com/giahuy/linux-backup.git $HOME/dotfiles/local/backup

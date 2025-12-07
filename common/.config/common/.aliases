@@ -103,8 +103,8 @@ udotf() {
 
 # Update .stignore
 ustgn() {
-  cwd=$(pwd)
-  cd $HOME/linux-backup && \
+  cwd=$(pwd) && \
+  cd $HOME/dotfiles/local/backup && \
   gpl && \
   ./copy-stignores.sh && \
   cd $cwd
