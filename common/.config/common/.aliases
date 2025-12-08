@@ -105,7 +105,7 @@ udotf() {
 ustgn() {
   cwd=$(pwd) && \
   cd $HOME/dotfiles/local/backup && \
-  gpl && \
+  git -c http.sslVerify=false pull && \
   ./copy-stignores.sh && \
   cd $cwd
 }
