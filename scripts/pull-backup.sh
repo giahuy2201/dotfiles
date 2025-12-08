@@ -1,1 +1,1 @@
-git clone https://git.home.suunhuy.com/giahuy/linux-backup.git $HOME/dotfiles/local/backup
+git -c http.sslVerify=false clone https://100.100.0.3:3333/giahuy/linux-backup.git $HOME/dotfiles/local/backup
