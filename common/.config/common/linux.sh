@@ -36,6 +36,11 @@ if [ -d $HOME/.nvm ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
+# LD_LIBRARY_PATH for GNU Radio
+if [ -d /usr/local/lib64 ]; then
+  export LD_LIBRARY_PATH=/usr/local/lib64:${LD_LIBRARY_PATH}
+fi
+
 # ----------
 # SHORTCUTS
 # ----------
