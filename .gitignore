@@ -5,3 +5,6 @@
 !wireshark/dfilters
 /etc/wireguard
 /etc/keyd/keyd/default.conf
+/VSCodium/*
+!VSCodium/User/settings.json
+!VSCodium/User/keybindings.json
