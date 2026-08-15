@@ -9,6 +9,7 @@ fi
 
 # Cargo
 if [ -d $HOME/.cargo ]; then
+  . "$HOME/.cargo/env"
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
